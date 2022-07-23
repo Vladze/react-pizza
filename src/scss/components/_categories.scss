@@ -1,5 +1,18 @@
 @import '../variables';
 
+@media (max-width: 1260px) {
+  .categories {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 980px) {
+  .categories {
+    max-width: 100%;
+    overflow: auto;
+  }
+}
+
 .categories {
   ul {
     display: flex;

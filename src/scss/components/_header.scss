@@ -1,5 +1,18 @@
 @import '../variables';
 
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+
+    input {
+      margin-bottom: 20px;
+    }
+
+    .header__logo {
+      margin-bottom: 20px;
+    }
+  }
+}
 .header {
   border-bottom: 1px solid $gray-line;
   padding: 40px 0;
