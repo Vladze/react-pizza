@@ -4,16 +4,22 @@ import PizzaBlock from '../components/PizzaBlock';
 import pizzas from '../assets/pizzas.json';
 import { useEffect, useState } from 'react';
 import Skeleton from '../components/PizzaBlock/Skeleton';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId, setSortType } from '../redux/slices/filterSlice';
 
 const Home = ({ searchValue }) => {
+  const dispatch = useDispatch();
+  const { categoryId, sortType } = useSelector((state) => state.filter);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
-  const [sortType, setSortType] = useState({
-    name: 'популярности',
-    sortBy: 'rating',
-    order: 'desc',
-  });
+
+  const onClickCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
+
+  const onClickSort = (sortValue) => {
+    dispatch(setSortType(sortValue));
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,8 +41,8 @@ const Home = ({ searchValue }) => {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories value={categoryId} onClickCategory={(index) => setCategoryId(index)} />
-        <Sort value={sortType} onClickSort={(sortValue) => setSortType(sortValue)} />
+        <Categories value={categoryId} onClickCategory={onClickCategory} />
+        <Sort value={sortType} onClickSort={onClickSort} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
