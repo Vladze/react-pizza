@@ -4,7 +4,7 @@
 
 .input {
   border: 1px solid rgb(0, 0, 0, 0.1);
-  padding: 8px 5px 8px 35px;
+  padding: 8px 30px 8px 35px;
   outline: none;
   border-radius: 10px;
   font-size: 16px;
@@ -22,4 +22,13 @@
   fill: gray;
   left: 10px;
   top: 10px;
+}
+
+.btn {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  cursor: pointer;
 }
