@@ -16,9 +16,6 @@ const Home = ({ searchValue }) => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  console.log(isSearch);
-  console.log(isMounted);
-
   const { categoryId, sortType } = useSelector((state) => state.filter);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
